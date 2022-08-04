@@ -7,5 +7,4 @@ export default interface Movie {
   title: string;
   vote_average: number;
   vote_count: number;
-  backdrop_path: string;
 }

@@ -16,7 +16,10 @@ const Main = () => {
       getMovieBySearch(search).then((response) => {
         setMovies(response.results);
       });
-    } else {
+    }
+    //     else if() {
+    // }
+    else {
       getPopularMovies().then((response) => {
         setMovies(response.results);
       });
