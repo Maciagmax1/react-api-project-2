@@ -19,7 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Main />} />
           {/* to do */}
-          <Route path="/movies/discover" element={<Main />} />
+          <Route path="/movies/filter" element={<Main />} />
           <Route path="/movies/search" element={<Main />} />
           <Route path="/movies/:id/details" element={<Details />} />
           <Route path="/movies/watchlist" element={<WatchList />} />

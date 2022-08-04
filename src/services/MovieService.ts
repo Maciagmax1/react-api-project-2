@@ -39,3 +39,15 @@ export const getCertificationById = (
     )
     .then((response) => response.data);
 };
+
+export const getMovieBySearch = (
+  search: string
+): Promise<MultipleMovieResponse> => {
+  return axios
+    .get(`https://api.themoviedb.org/3/search/movie`, {
+      params: { query: search, api_key: key },
+    })
+    .then((response) => {
+      return response.data;
+    });
+};
