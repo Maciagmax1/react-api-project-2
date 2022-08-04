@@ -1,3 +1,5 @@
+import Genre from "./Genre";
+
 export default interface MovieDetails {
   overview: string;
   id: string;
@@ -9,4 +11,5 @@ export default interface MovieDetails {
   title: string;
   vote_average: number;
   vote_count: number;
+  genres: Genre[];
 }

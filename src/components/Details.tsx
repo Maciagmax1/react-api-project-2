@@ -13,7 +13,6 @@ const Details = () => {
 
   useEffect(() => {
     getMovieById(id!).then((response) => {
-      console.log(response);
       setMovie(response);
     });
   }, []);
@@ -25,6 +24,12 @@ const Details = () => {
             src={`https://image.tmdb.org/t/p/w400${movie.poster_path}`}
             alt={movie.title}
           />
+          <p>{movie.release_date.substring(0, 3)}</p>
+          {/* rating <p>{movie.}</p> */}
+          <p>{movie.runtime}minutes</p>
+          <p>{movie.vote_average}</p>
+          <h2>{movie.title}</h2>
+          <p>{movie.genres[0].name}</p>
           <p>{movie.overview}</p>
         </>
       )}
