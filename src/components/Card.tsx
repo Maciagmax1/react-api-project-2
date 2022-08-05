@@ -48,7 +48,6 @@ const Card = ({ movie }: Props) => {
 
   return (
     <>
-      {console.log(certification?.certification)}
       <li className="Card">
         <Link to={`/movies/${encodeURIComponent(movie.id)}/details`}>
           <img

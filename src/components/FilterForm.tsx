@@ -1,17 +1,39 @@
+import { FormEvent, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./FilterForm.css";
 
 const FilterForm = () => {
+  const navigate = useNavigate();
+
+  const [rating, setRating] = useState("");
+  const [genre, setGenre] = useState("");
+  const [voteAverage, setVoteAverage] = useState("");
+
+  const handleSubmit = (e: FormEvent): void => {
+    e.preventDefault();
+    navigate(
+      `/movies/filter?${new URLSearchParams({
+        certfication: rating,
+        certification_country: "US",
+      })}`
+    );
+  };
+
   return (
-    <form className="FilterForm">
-      <select name="certification" id="certification">
+    <form className="FilterForm" onSubmit={(e) => handleSubmit(e)}>
+      <select
+        name="certification"
+        id="certification"
+        onChange={(e) => setRating(e.target.value)}
+      >
         <option value="" disabled selected>
           Rating
         </option>
         <option value="1"></option>
-        <option value="2">G</option>
-        <option value="3">PG</option>
-        <option value="4">PG-13</option>
-        <option value="5">R</option>
+        <option value="G">G</option>
+        <option value="PG">PG</option>
+        <option value="PG-13">PG-13</option>
+        <option value="R">R</option>
       </select>
       <select name="genre" id="genre">
         <option value="" disabled selected>
@@ -43,12 +65,12 @@ const FilterForm = () => {
           User Rating
         </option>
         <option value=""></option>
-        <option value="">5+</option>
-        <option value="">6+</option>
-        <option value="">7+</option>
-        <option value="">8+</option>
-        <option value="">9+</option>
-        <option value="">10</option>
+        <option value="5">5+</option>
+        <option value="6">6+</option>
+        <option value="7">7+</option>
+        <option value="8">8+</option>
+        <option value="9">9+</option>
+        <option value="10">10</option>
       </select>
       <button>Filter</button>
     </form>
