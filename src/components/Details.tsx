@@ -24,7 +24,7 @@ const Details = () => {
             src={`https://image.tmdb.org/t/p/w400${movie.poster_path}`}
             alt={movie.title}
           />
-          <p>{movie.release_date.substring(0, 3)}</p>
+          <p>{movie.release_date.substring(0, 4)}</p>
           {/* rating <p>{movie.}</p> */}
           <p>{movie.runtime}minutes</p>
           <p>{movie.vote_average}</p>

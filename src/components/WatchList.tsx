@@ -1,7 +1,11 @@
+import { useContext } from "react";
+import WatchListContext from "../context/WatchListContext";
 import "./WatchList.css";
 
 const WatchList = () => {
-  return <div className="WatchList">WatchList works</div>;
+  const { watchList } = useContext(WatchListContext);
+
+  return <div className="WatchList"></div>;
 };
 
 export default WatchList;

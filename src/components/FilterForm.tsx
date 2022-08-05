@@ -13,18 +13,19 @@ const FilterForm = () => {
     e.preventDefault();
     navigate(
       `/movies/filter?${new URLSearchParams({
-        certfication: rating,
-        certification_country: "US",
+        // certfication: rating,
+        // certification_country: "US",
+        "vote_average.gte": voteAverage,
       })}`
     );
   };
 
   return (
     <form className="FilterForm" onSubmit={(e) => handleSubmit(e)}>
-      <select
+      {/* <select
         name="certification"
         id="certification"
-        onChange={(e) => setRating(e.target.value)}
+        // onChange={(e) => setRating(e.target.value)}
       >
         <option value="" disabled selected>
           Rating
@@ -59,8 +60,12 @@ const FilterForm = () => {
         <option value="53">Thriller</option>
         <option value="10752">War</option>
         <option value="37">Western</option>
-      </select>
-      <select name="user-rating" id="user-rating">
+      </select> */}
+      <select
+        name="user-rating"
+        id="user-rating"
+        onChange={(e) => setVoteAverage(e.target.value)}
+      >
         <option value="" disabled selected>
           User Rating
         </option>

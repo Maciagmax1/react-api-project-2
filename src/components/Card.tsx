@@ -2,6 +2,7 @@ import { link } from "fs";
 import { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import GenresContext from "../context/GenresContext";
+import WatchListContext from "../context/WatchListContext";
 import Movie from "../models/Movie";
 import SingleCertificationResponse, {
   Certification,
@@ -16,6 +17,8 @@ interface Props {
 
 const Card = ({ movie }: Props) => {
   const { genres } = useContext(GenresContext);
+  const { watchList, addToWatchList, removeFromWatchList, isInWatchList } =
+    useContext(WatchListContext);
 
   const id: string | undefined = useParams().id;
 
@@ -56,6 +59,19 @@ const Card = ({ movie }: Props) => {
           />
         </Link>
         <p>{movie.release_date.substring(0, 4)}</p>
+        {isInWatchList(movie.id) ? (
+          <i
+            className="fa-solid fa-bookmark"
+            onClick={() => removeFromWatchList(movie.id)}
+          >
+            {watchList.length}
+          </i>
+        ) : (
+          <i
+            className="fa-regular fa-bookmark"
+            onClick={() => addToWatchList(movie)}
+          ></i>
+        )}
         <ul>{getAllGenres(movie.genre_ids).slice(0, 3)}</ul>
         <h2>{movie.title}</h2>
         <p>{movie.vote_average}</p>
