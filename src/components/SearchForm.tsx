@@ -14,10 +14,13 @@ const SearchForm = () => {
   }, [debouncedSearch]);
 
   const navigate = useNavigate();
+
   const onChangeHandler = async (e: any) => {
     // e.preventDefault();
-    navigate(`/movies/search?${new URLSearchParams({ query: search })}`);
     await setSearch(e.target.value);
+    navigate(
+      `/movies/search?${new URLSearchParams({ query: e.target.value })}`
+    );
   };
   return (
     <form className="SearchForm">

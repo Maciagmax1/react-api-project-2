@@ -26,6 +26,7 @@ const Details = () => {
       return `${hour} hours ${minutes} minutes`;
     }
   };
+
   return (
     <div className="Details">
       {movie && (
@@ -45,6 +46,7 @@ const Details = () => {
             ))}
           </ul>
           <p>{movie.overview}</p>
+          {/* <a href={`https://www.youtube.com/watch?v=${movie.}`} target="_blank"></a> */}
         </>
       )}
     </div>

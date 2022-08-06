@@ -22,19 +22,19 @@ const Card = ({ movie }: Props) => {
     null
   );
 
-  useEffect(() => {
-    getCertificationById(movie.id!).then((response) => {
-      const resultsIndex = response.results.findIndex(
-        (item) => item.iso_3166_1 === "US"
-      );
-      const releaseDatesIndex = response.results[
-        resultsIndex
-      ].release_dates.findIndex((item) => item.certification);
-      setCertification(
-        response.results[resultsIndex].release_dates[releaseDatesIndex]
-      );
-    });
-  }, [movie.id]);
+  // useEffect(() => {
+  //   getCertificationById(movie.id!).then((response) => {
+  //     const resultsIndex = response.results.findIndex(
+  //       (item) => item.iso_3166_1 === "US"
+  //     );
+  //     const releaseDatesIndex = response.results[
+  //       resultsIndex
+  //     ].release_dates.findIndex((item) => item.certification);
+  //     setCertification(
+  //       response.results[resultsIndex].release_dates[releaseDatesIndex]
+  //     );
+  //   });
+  // }, [movie.id]);
 
   const getAllGenres = (array: number[]): any[] => {
     return array.map((id) => {
@@ -45,6 +45,10 @@ const Card = ({ movie }: Props) => {
     });
   };
 
+  // const releaseYear = movie.release_date.split("-")
+  //   ? movie.release_date.split("-")
+  //   : null;
+
   return (
     <>
       <li className="Card">
@@ -54,7 +58,7 @@ const Card = ({ movie }: Props) => {
             alt={movie.title}
           />
         </Link>
-        <p>{movie.release_date.substring(0, 4)}</p>
+        {/* {releaseYear ? <p>{releaseYear[0]}</p> : <p>noting</p>} */}
         <ul>{getAllGenres(movie.genre_ids).slice(0, 3)}</ul>
         <h2>{movie.title}</h2>
         <p>{movie.vote_average}</p>
