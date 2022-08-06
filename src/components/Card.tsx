@@ -1,4 +1,3 @@
-import { link } from "fs";
 import { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import GenresContext from "../context/GenresContext";
@@ -35,7 +34,7 @@ const Card = ({ movie }: Props) => {
         response.results[resultsIndex].release_dates[releaseDatesIndex]
       );
     });
-  }, []);
+  }, [movie.id]);
 
   const getAllGenres = (array: number[]): any[] => {
     return array.map((id) => {
@@ -48,7 +47,6 @@ const Card = ({ movie }: Props) => {
 
   return (
     <>
-      {console.log(certification?.certification)}
       <li className="Card">
         <Link to={`/movies/${encodeURIComponent(movie.id)}/details`}>
           <img

@@ -52,19 +52,40 @@ export const getMovieBySearch = (
     });
 };
 
+// export const getMovieByFilter = (
+//   certificationCountry: string = "US",
+//   certification?: string,
+//   genre?: number[],
+//   userRating?: number
+// ): Promise<MultipleMovieResponse> => {
+//   return axios.get(`https://api.themoviedb.org/3/discover/movie`, {
+//     params: {
+//       api_key: key,
+//       certification,
+//       certification_country: certificationCountry,
+//       genre_ids: genre,
+//       "vote_average.gte": userRating,
+//     },
+//   });
+// };
+
 export const getMovieByFilter = (
-  certificationCountry: string = "US",
+  rating?: number,
   certification?: string,
-  genre?: number[],
-  userRating?: number
+  certificationCountry?: string,
+  genreIds?: number
 ): Promise<MultipleMovieResponse> => {
-  return axios.get(`https://api.themoviedb.org/3/discover/movie`, {
-    params: {
-      api_key: key,
-      certification,
-      certification_country: certificationCountry,
-      genre_ids: genre,
-      "vote_average.gte": userRating,
-    },
-  });
+  return axios
+    .get(`https://api.themoviedb.org/3/discover/movie`, {
+      params: {
+        "vote_average.gte": rating,
+        api_key: key,
+        certification: certification,
+        certification_country: "US",
+        with_genres: genreIds,
+      },
+    })
+    .then((response) => {
+      return response.data;
+    });
 };
