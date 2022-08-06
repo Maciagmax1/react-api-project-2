@@ -7,6 +7,7 @@ interface Props {
 }
 
 const CardContainer = ({ movies }: Props) => {
+  console.dir(movies);
   return (
     <div className="CardContainer">
       {movies.map((movie, index) => (

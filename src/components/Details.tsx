@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Movie from "../models/Movie";
+
 import MovieDetails from "../models/MovieDetails";
 import { getMovieById } from "../services/MovieService";
-import Card from "./Card";
+
 import "./Details.css";
 
 const Details = () => {
@@ -15,7 +15,18 @@ const Details = () => {
     getMovieById(id!).then((response) => {
       setMovie(response);
     });
-  }, []);
+  }, [id]);
+
+  const convertTime = (time: number) => {
+    let hour = Math.floor(time / 60);
+    let minutes = time - hour * 60;
+    if (hour == 1) {
+      return `${hour} hour ${minutes} minutes`;
+    } else {
+      return `${hour} hours ${minutes} minutes`;
+    }
+  };
+
   return (
     <div className="Details">
       {movie && (
@@ -24,13 +35,18 @@ const Details = () => {
             src={`https://image.tmdb.org/t/p/w400${movie.poster_path}`}
             alt={movie.title}
           />
-          <p>{movie.release_date.substring(0, 3)}</p>
+          <p>{movie.release_date.substring(0, 4)}</p>
           {/* rating <p>{movie.}</p> */}
-          <p>{movie.runtime}minutes</p>
-          <p>{movie.vote_average}</p>
+          <p>{convertTime(parseInt(movie.runtime))}</p>
+          <p>{movie.vote_average.toFixed(1)}</p>
           <h2>{movie.title}</h2>
-          <p>{movie.genres[0].name}</p>
+          <ul>
+            {movie.genres.map((genre) => (
+              <li>{genre.name}</li>
+            ))}
+          </ul>
           <p>{movie.overview}</p>
+          {/* <a href={`https://www.youtube.com/watch?v=${movie.}`} target="_blank"></a> */}
         </>
       )}
     </div>
