@@ -8,19 +8,24 @@ const Footer = () => {
 
   return (
     <div className="Footer">
-      <Link to="/movies/watchlist">
-        <i className="fa-solid fa-eye">{watchList.length}</i>
-        <p>Watch List</p>
-      </Link>
+      <div className="link-container">
+        <Link to="/movies/watchlist">
+          <div className="number-container">
+            <i className="fa-solid fa-eye"></i>
+            <span className="number">{watchList.length}</span>
+          </div>
+          <p>Watch List</p>
+        </Link>
 
-      <Link to="/">
-        <i className="fa-solid fa-house-chimney"></i>
-        <p>Home</p>
-      </Link>
-      <Link to="/">
-        <i className="fa-solid fa-right-to-bracket"></i>
-        <p>Login</p>
-      </Link>
+        <Link to="/">
+          <i className="fa-solid fa-house-chimney"></i>
+          <p>Home</p>
+        </Link>
+        <Link to="/">
+          <i className="fa-solid fa-right-to-bracket"></i>
+          <p>Login</p>
+        </Link>
+      </div>
     </div>
   );
 };

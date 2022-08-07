@@ -9,13 +9,18 @@ const Header = () => {
 
   return (
     <header className="Header">
-      <Link to="/">
-        <h1>QuickFlix</h1>
-      </Link>
-      {formToggle ? <FilterForm /> : <SearchForm />}
-      <button onClick={() => setFormToggle(!formToggle)}>
-        {formToggle ? "SearchForm" : "FilterForm"}
-      </button>
+      <div className="header-wrapper">
+        <Link to="/">
+          <h1>QuickFlix</h1>
+        </Link>
+        {formToggle ? <FilterForm /> : <SearchForm />}
+        <button
+          className="filter-btn"
+          onClick={() => setFormToggle(!formToggle)}
+        >
+          {formToggle ? <span>Search</span> : <span>Filter</span>}
+        </button>
+      </div>
     </header>
   );
 };

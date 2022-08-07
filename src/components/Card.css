@@ -1,0 +1,73 @@
+/* .Card {
+  height: 495;
+  margin-top: 20px;
+} */
+
+.Card {
+  box-sizing: border-box;
+  background-color: #151c23;
+  border: 1px solid #484646;
+  border-radius: 10px;
+  padding: 15px 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.Card img {
+  border-radius: 10px;
+}
+
+.Card h2 {
+  text-align: center;
+}
+
+.Card ul {
+  background-color: #e34040;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.Card .info {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 10px 0px;
+  font-weight: 400;
+  font-size: 15px;
+}
+
+.Card .title {
+  margin-top: 15px;
+  width: 300px;
+}
+
+.Card .poster-bookmark {
+  position: relative;
+}
+
+.Card .fa-bookmark {
+  cursor: pointer;
+  position: absolute;
+  background-color: #0c1218;
+  border-radius: 10px;
+  bottom: 0px;
+  right: 0px;
+}
+
+.Card .fa-solid {
+  color: #e34040;
+}
+
+.Card .vote-average {
+  display: flex;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 25px;
+  margin-top: 15px;
+}
+
+.Card .fa-star {
+  color: #feba35;
+  padding-right: 10px;
+}

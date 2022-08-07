@@ -57,32 +57,42 @@ const Card = ({ movie }: Props) => {
   return (
     <>
       <li className="Card">
-        <Link to={`/movies/${encodeURIComponent(movie.id)}/details`}>
-          <img
-            src={`https://image.tmdb.org/t/p/w400${movie.poster_path}`}
-            alt={movie.title}
-          />
-        </Link>
-        {releaseYear ? <p>{releaseYear[0]}</p> : <p>nothing</p>}
-        {isInWatchList(movie.id) ? (
-          <i
-            className="fa-solid fa-bookmark"
-            onClick={() => removeFromWatchList(movie.id)}
-          ></i>
-        ) : (
-          <i
-            className="fa-regular fa-bookmark"
-            onClick={() => addToWatchList(movie)}
-          ></i>
-        )}
+        <div className="poster-bookmark">
+          <Link to={`/movies/${encodeURIComponent(movie.id)}/details`}>
+            <img
+              src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
+              alt={movie.title}
+            />
+          </Link>
+          {isInWatchList(movie.id) ? (
+            <i
+              className="fa-solid fa-bookmark fa-3x"
+              onClick={() => removeFromWatchList(movie.id)}
+            ></i>
+          ) : (
+            <i
+              className="fa-regular fa-bookmark fa-3x"
+              onClick={() => addToWatchList(movie)}
+            ></i>
+          )}
+        </div>
+        <div className="info">
+          {releaseYear ? <p>{releaseYear[0]}</p> : <p>nothing</p>}
+          {certification?.certification ? (
+            <p>{certification?.certification}</p>
+          ) : (
+            <p>No US Rating</p>
+          )}
+        </div>
+
         <ul>{getAllGenres(movie.genre_ids).slice(0, 3)}</ul>
-        <h2>{movie.title}</h2>
-        <p>{movie.vote_average}</p>
-        {certification?.certification ? (
-          <p>{certification?.certification}</p>
-        ) : (
-          <p>No US Rating</p>
-        )}
+        <div className="title">
+          <h2>{movie.title}</h2>
+        </div>
+        <div className="vote-average">
+          <i className="fa-solid fa-star"></i>
+          <p>{movie.vote_average}</p>
+        </div>
       </li>
     </>
   );

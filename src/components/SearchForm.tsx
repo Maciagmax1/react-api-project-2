@@ -24,14 +24,18 @@ const SearchForm = () => {
   };
   return (
     <form className="SearchForm">
-      <input
-        type="text"
-        name="search"
-        id="search"
-        placeholder="Search"
-        value={search}
-        onChange={onChangeHandler}
-      />
+      <div className="search-wrapper">
+        <i className="fa-solid fa-magnifying-glass"></i>
+
+        <input
+          type="text"
+          name="search"
+          id="search"
+          placeholder="Search"
+          value={search}
+          onChange={onChangeHandler}
+        />
+      </div>
     </form>
   );
 };

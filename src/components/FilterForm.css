@@ -1,0 +1,27 @@
+.FilterForm .form-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.FilterForm .inputs {
+  margin: 3px 3px;
+}
+
+.FilterForm #certification {
+  margin-left: 5px;
+}
+
+.FilterForm button {
+  background-color: #e34040;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: 600;
+  padding: 0px 20px 0px 20px;
+  margin-left: 5px;
+}
+
+.FilterForm button:hover {
+  background-color: white;
+  color: #e34040;
+}

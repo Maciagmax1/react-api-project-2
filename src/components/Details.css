@@ -1,0 +1,44 @@
+.Details .overview-container {
+  margin: 10px;
+  text-align: justify;
+  /* hyphens: none; */
+}
+
+.Details img {
+  max-width: 100%;
+}
+
+.Details ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0px;
+}
+
+.Details li {
+  background-color: #e34040;
+  padding: 3px 15px;
+  border-radius: 10px;
+  margin: 10px 15px;
+  font-size: 15px;
+}
+
+.Details .rating-title-container {
+  display: flex;
+  margin: 10px;
+}
+
+.Details .rating-title-container p {
+  font-size: 25px;
+}
+
+.Details .fa-star {
+  color: #feba35;
+  padding-right: 10px;
+}
+
+.Details .hidden-div {
+  display: hidden;
+  height: 55.5px;
+  width: 100%;
+}
