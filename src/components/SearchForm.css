@@ -1,0 +1,23 @@
+.SearchForm .search-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  min-width: 100px;
+  margin: 10px;
+}
+
+.SearchForm #search {
+  border: none;
+  border-radius: 5px;
+  height: 25px;
+  width: 100%;
+  padding-left: 30px;
+}
+
+.SearchForm .fa-magnifying-glass {
+  position: absolute;
+  top: 5px;
+  left: 8px;
+  width: 14px;
+  color: #666;
+}

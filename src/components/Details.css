@@ -1,0 +1,7 @@
+.Details .movie-overview-container {
+  margin: 10px;
+  font-size: 15px;
+  font-weight: 500px;
+  border: 2px solid red;
+  text-align: justify;
+}

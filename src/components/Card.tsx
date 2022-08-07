@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import FavoritesContext from "../context/FavoritesContext";
 import GenresContext from "../context/GenresContext";
 import Movie from "../models/Movie";
 import SingleCertificationResponse, {
@@ -15,6 +16,7 @@ interface Props {
 
 const Card = ({ movie }: Props) => {
   const { genres } = useContext(GenresContext);
+  const { addFavorite, removeFavorite, isFav } = useContext(FavoritesContext);
 
   const id: string | undefined = useParams().id;
 
@@ -52,21 +54,43 @@ const Card = ({ movie }: Props) => {
   return (
     <>
       <li className="Card">
-        <Link to={`/movies/${encodeURIComponent(movie.id)}/details`}>
-          <img
-            src={`https://image.tmdb.org/t/p/w400${movie.poster_path}`}
-            alt={movie.title}
-          />
-        </Link>
+        <div className="poster-bookmark">
+          <Link to={`/movies/${encodeURIComponent(movie.id)}/details`}>
+            <img
+              src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
+              alt={movie.title}
+            />
+          </Link>
+          {isFav(movie.id) ? (
+            <i
+              className="fa-solid fa-bookmark fa-3x"
+              onClick={() => removeFavorite(movie.id)}
+            ></i>
+          ) : (
+            <i
+              className="fa-regular fa-bookmark fa-3x"
+              onClick={() => addFavorite(movie)}
+            ></i>
+          )}
+        </div>
         {/* {releaseYear ? <p>{releaseYear[0]}</p> : <p>noting</p>} */}
+        <div className="info">
+          <p>{movie.release_date.substring(0, 4)}</p>
+
+          {certification?.certification ? (
+            <p>{certification?.certification}</p>
+          ) : (
+            <p>No US Rating</p>
+          )}
+        </div>
         <ul>{getAllGenres(movie.genre_ids).slice(0, 3)}</ul>
-        <h2>{movie.title}</h2>
-        <p>{movie.vote_average}</p>
-        {certification?.certification ? (
-          <p>{certification?.certification}</p>
-        ) : (
-          <p>No US Rating</p>
-        )}
+        <div className="title">
+          <h2>{movie.title}</h2>
+        </div>
+        <div className="vote-average">
+          <i className="fa-solid fa-star"></i>
+          <p>{movie.vote_average}</p>
+        </div>
       </li>
     </>
   );
