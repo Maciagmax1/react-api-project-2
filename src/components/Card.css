@@ -17,6 +17,11 @@
   border-radius: 10px;
 }
 
+.Card .no-poster {
+  border-radius: 10px;
+  width: 300px;
+}
+
 .Card h2 {
   text-align: center;
 }

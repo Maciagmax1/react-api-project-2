@@ -59,10 +59,18 @@ const Card = ({ movie }: Props) => {
       <li className="Card">
         <div className="poster-bookmark">
           <Link to={`/movies/${encodeURIComponent(movie.id)}/details`}>
-            <img
-              src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
-              alt={movie.title}
-            />
+            {movie.poster_path ? (
+              <img
+                src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
+                alt={movie.title}
+              />
+            ) : (
+              <img
+                src="https://bflix.biz/no-poster.png"
+                alt="no-poster"
+                className="no-poster"
+              />
+            )}
           </Link>
           {isInWatchList(movie.id) ? (
             <i
