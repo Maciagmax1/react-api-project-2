@@ -1,17 +1,43 @@
-.Details .overview-container {
-  margin: 10px;
-  text-align: justify;
-  /* hyphens: none; */
-}
-
 .Details img {
   max-width: 100%;
 }
+
+
+.Details .date-run-container {
 
 .Details .no-poster {
   width: 300px;
   height: 450px;
   max-width: 100%;
+}
+
+.Details ul {
+
+  display: flex;
+  justify-content: space-evenly;
+  margin: 5px 0px;
+  font-weight: 200;
+  font-size: 13px;
+}
+
+.Details .rating-title-container {
+  display: flex;
+  align-items: center;
+  margin: 10px 10px 0px 10px;
+}
+
+.Details h2 {
+  padding: 0;
+  margin-left: 20px;
+}
+
+.Details .rating-title-container p {
+  font-size: 25px;
+}
+
+.Details .fa-star {
+  color: #feba35;
+  padding-right: 10px;
 }
 
 .Details ul {
@@ -25,26 +51,20 @@
   background-color: #e34040;
   padding: 3px 15px;
   border-radius: 10px;
-  margin: 10px 15px;
+  margin: 15px 15px;
   font-size: 15px;
 }
 
-.Details .rating-title-container {
-  display: flex;
-  margin: 10px;
-}
-
-.Details .rating-title-container p {
-  font-size: 25px;
-}
-
-.Details .fa-star {
-  color: #feba35;
-  padding-right: 10px;
+.Details .overview-container {
+  margin: 0px 15px;
+  text-align: justify;
+  font-size: 15px;
+  font-weight: 200;
+  line-height: 25px;
 }
 
 .Details .hidden-div {
   display: hidden;
-  height: 55.5px;
+  height: 65px;
   width: 100%;
 }
