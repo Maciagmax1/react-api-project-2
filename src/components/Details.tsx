@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import WatchListContext from "../context/WatchListContext";
 
 import MovieDetails from "../models/MovieDetails";
@@ -20,8 +20,6 @@ const Details = () => {
       setMovie(response);
     });
   }, [id]);
-
-  const navigate = useNavigate();
 
   const convertTime = (time: number) => {
     let hour = Math.floor(time / 60);
@@ -52,10 +50,6 @@ const Details = () => {
               />
             )}
           </div>
-          <i
-            className="close-btn fa-solid fa-circle-xmark fa-2x"
-            onClick={() => navigate(-1)}
-          ></i>
           <div className="details-container">
             <div className="date-run-container">
               <p>{movie.release_date.substring(0, 4)}</p>
@@ -64,17 +58,10 @@ const Details = () => {
             </div>
 
             <div className="rating-title-container">
-              <div className="vote-count-container">
-                <span>
-                  <i className="fa-solid fa-star fa-2x"></i>
-                  <p>{movie.vote_average.toFixed(1)}</p>
-                </span>
-                <p className="vote-count-p">{movie.vote_count} votes</p>
-              </div>
-
+              <i className="fa-solid fa-star fa-2x"></i>
+              <p>{movie.vote_average.toFixed(1)}</p>
               <h2>{movie.title}</h2>
             </div>
-
             <ul>
               {movie.genres.map((genre) => (
                 <li>{genre.name}</li>
