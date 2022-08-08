@@ -74,12 +74,12 @@ const Card = ({ movie }: Props) => {
           </Link>
           {isInWatchList(movie.id) ? (
             <i
-              className="fa-solid fa-bookmark fa-3x"
+              className="fa-solid fa-bookmark fa-2x"
               onClick={() => removeFromWatchList(movie.id)}
             ></i>
           ) : (
             <i
-              className="fa-regular fa-bookmark fa-3x"
+              className="fa-regular fa-bookmark fa-2x"
               onClick={() => addToWatchList(movie)}
             ></i>
           )}

@@ -14,17 +14,36 @@ Body {
   color: white;
 }
 
+.Header {
+  position: fixed;
+  z-index: 1;
+}
+
+.Main .hidden-header-div {
+  height: 40px;
+}
+
 button {
   cursor: pointer;
 }
 
 @media only screen and (min-width: 768px) {
-  .Header .header-wrapper {
-    padding: 0px 10px;
+  .Main .hidden-header-div {
+    height: 80px;
+  }
+
+  .Header .hidden-link-div {
+    display: flex !important;
+    justify-content: space-between;
+    width: 15%;
   }
 
   .Header .filter-btn {
     font-size: 20px;
+  }
+
+  .Details img {
+    height: 80vh;
   }
 
   .SearchForm .search-wrapper {
@@ -40,57 +59,83 @@ button {
     font-size: 20px;
     color: #666;
     transform: translate(0px, 7px);
+  }
+
+  .FilterForm .inputs {
+    padding: 5px 20px;
+    margin-right: 20px;
+    /* font-size: 20px; */
+  }
+
+  .FilterForm span {
+    padding: 0;
+    margin: 10px;
   }
 
   .Card {
     padding: 30px 45px;
     height: 700px;
     margin-top: 20px;
+    transition: 1s ease;
+  }
+
+  .Card:hover {
+    transform: scale(1.05);
+    transition: 1s ease;
+  }
+
+  .Details .main-div {
+    display: flex;
+    align-items: center;
+    margin: 55px 20px 20px 20px;
+  }
+
+  .Details .img-container {
+    flex: 1;
+  }
+
+  .Details .details-container {
+    flex: 2;
+    flex-direction: column;
+  }
+
+  .Details .date-run-container {
+    justify-content: flex-start !important;
+  }
+
+  .Details .date-run-container p {
+    margin-left: 10px;
+  }
+
+  .Details ul {
+    justify-content: flex-start !important;
+    margin: 10px 0px 10px 0px;
+  }
+
+  .Details .overview-container {
+    justify-content: center;
+    width: 50%;
+  }
+
+  .Details button {
+    width: fit-content;
+    margin: 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #e34040;
+    color: white;
+    border: none;
+  }
+
+  .Details img {
+    border-radius: 10px;
+  }
+
+  .WatchList .margin-div {
+    padding-top: 20px;
   }
 
   .Footer {
     display: none;
   }
 }
-
-/* @media only screen and (min-width: 768px) {
-  .Header .header-wrapper {
-    padding: 0px 10px;
-  }
-
-  .Header .filter-btn {
-    font-size: 20px;
-  }
-
-  .SearchForm .search-wrapper {
-    width: 600px;
-  }
-
-  .SearchForm #search {
-    padding: 10px 0px;
-    font-size: 25px;
-  }
-
-  .SearchForm .fa-magnifying-glass {
-    font-size: 20px;
-    color: #666;
-    transform: translate(0px, 7px);
-  }
-
-  .CardContainer {
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-
-  .Card {
-    box-sizing: border-box;
-    background-color: #151c23;
-    border: 1px solid #484646;
-    border-radius: 10px;
-    padding: 30px 45px;
-  }
-
-  .Footer {
-    display: none;
-  }
-} */
