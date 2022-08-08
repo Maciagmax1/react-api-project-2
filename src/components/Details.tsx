@@ -92,15 +92,14 @@ const Details = () => {
             <div className="overview-container">
               <p>{movie.overview}</p>
             </div>
-            <button>Trailer</button>
+            <a
+              href={`https://www.youtube.com/watch?v=${video?.key}`}
+              target="_blank"
+            >
+              <button>Trailer</button>
+            </a>
           </div>
-          <a
-            href={`https://www.youtube.com/watch?v=${video?.key}`}
-            target="_blank"
-          >
-            Link
-          </a>
-        </>
+        </div>
       )}
       <div className="hidden-footer-div"></div>
     </div>

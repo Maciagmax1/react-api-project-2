@@ -29,6 +29,7 @@
   width: 300px;
   height: 450px;
   max-width: 100%;
+}
 
 .Details .rating-title-container {
   display: flex;
