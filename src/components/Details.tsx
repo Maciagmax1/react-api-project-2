@@ -35,10 +35,18 @@ const Details = () => {
     <div className="Details">
       {movie && (
         <>
-          <img
-            src={`https://image.tmdb.org/t/p/w400${movie.poster_path}`}
-            alt={movie.title}
-          />
+          {movie.poster_path ? (
+            <img
+              src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
+              alt={movie.title}
+            />
+          ) : (
+            <img
+              src="https://bflix.biz/no-poster.png"
+              alt="no-poster"
+              className="no-poster"
+            />
+          )}
           <div className=""></div>
           <p>{movie.release_date.substring(0, 4)}</p>
           {/* rating <p>{movie.}</p> */}
