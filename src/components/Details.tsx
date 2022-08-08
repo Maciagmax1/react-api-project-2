@@ -3,7 +3,10 @@ import { useNavigate, useParams } from "react-router-dom";
 import WatchListContext from "../context/WatchListContext";
 
 import MovieDetails from "../models/MovieDetails";
-import { getMovieById } from "../services/MovieService";
+import SingleTrailerResponse, {
+  TrailerList,
+} from "../models/SingleTrailerResponse";
+import { getMovieById, getMovieTrailer } from "../services/MovieService";
 
 import "./Details.css";
 
@@ -12,12 +15,18 @@ const Details = () => {
 
   const [movie, setMovie] = useState<MovieDetails | null>(null);
 
+  const [video, setVideo] = useState<TrailerList>();
+
   const { watchList, addToWatchList, removeFromWatchList, isInWatchList } =
     useContext(WatchListContext);
 
   useEffect(() => {
     getMovieById(id!).then((response) => {
       setMovie(response);
+    });
+
+    getMovieTrailer(id!).then((response) => {
+      setVideo(response.results[0]);
     });
   }, [id]);
 
@@ -85,8 +94,13 @@ const Details = () => {
             </div>
             <button>Trailer</button>
           </div>
-          {/* <a href={`https://www.youtube.com/watch?v=${movie.}`} target="_blank"></a> */}
-        </div>
+          <a
+            href={`https://www.youtube.com/watch?v=${video?.key}`}
+            target="_blank"
+          >
+            Link
+          </a>
+        </>
       )}
       <div className="hidden-footer-div"></div>
     </div>
