@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import WatchListContext from "../context/WatchListContext";
 
 import MovieDetails from "../models/MovieDetails";
@@ -21,6 +21,8 @@ const Details = () => {
     });
   }, [id]);
 
+  const navigate = useNavigate();
+
   const convertTime = (time: number) => {
     let hour = Math.floor(time / 60);
     let minutes = time - hour * 60;
@@ -33,34 +35,60 @@ const Details = () => {
 
   return (
     <div className="Details">
+      <div className="hidden-header-div"></div>
       {movie && (
-        <>
-          <img
-            src={`https://image.tmdb.org/t/p/w400${movie.poster_path}`}
-            alt={movie.title}
-          />
-          <div className="date-run-container">
-            <p>{movie.release_date.substring(0, 4)}</p>
-            {/* rating <p>{movie.}</p> */}
-            <p>{convertTime(parseInt(movie.runtime))}</p>
+        <div className="main-div">
+          <div className="img-container">
+            {movie.poster_path ? (
+              <img
+                src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                alt={movie.title}
+              />
+            ) : (
+              <img
+                src="https://bflix.biz/no-poster.png"
+                alt="no-poster"
+                className="no-poster"
+              />
+            )}
           </div>
-          <div className="rating-title-container">
-            <i className="fa-solid fa-star fa-2x"></i>
-            <p>{movie.vote_average.toFixed(1)}</p>
-            <h2>{movie.title}</h2>
-          </div>
-          <ul>
-            {movie.genres.map((genre) => (
-              <li>{genre.name}</li>
-            ))}
-          </ul>
-          <div className="overview-container">
-            <p>{movie.overview}</p>
+          <i
+            className="close-btn fa-solid fa-circle-xmark fa-2x"
+            onClick={() => navigate(-1)}
+          ></i>
+          <div className="details-container">
+            <div className="date-run-container">
+              <p>{movie.release_date.substring(0, 4)}</p>
+              <p>|</p>
+              <p>{convertTime(parseInt(movie.runtime))}</p>
+            </div>
+
+            <div className="rating-title-container">
+              <div className="vote-count-container">
+                <span>
+                  <i className="fa-solid fa-star fa-2x"></i>
+                  <p>{movie.vote_average.toFixed(1)}</p>
+                </span>
+                <p className="vote-count-p">{movie.vote_count} votes</p>
+              </div>
+
+              <h2>{movie.title}</h2>
+            </div>
+
+            <ul>
+              {movie.genres.map((genre) => (
+                <li>{genre.name}</li>
+              ))}
+            </ul>
+            <div className="overview-container">
+              <p>{movie.overview}</p>
+            </div>
+            <button>Trailer</button>
           </div>
           {/* <a href={`https://www.youtube.com/watch?v=${movie.}`} target="_blank"></a> */}
-        </>
+        </div>
       )}
-      <div className="hidden-div"></div>
+      <div className="hidden-footer-div"></div>
     </div>
   );
 };

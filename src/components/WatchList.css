@@ -2,9 +2,19 @@
   list-style: none;
 }
 
-.WatchList {
+.WatchList .watchlist-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
+}
+
+.WatchList .margin-div {
+  height: 45px;
+}
+
+.WatchList .hidden-footloose-div {
+  display: hidden;
+  height: 65px;
+  width: 100%;
 }

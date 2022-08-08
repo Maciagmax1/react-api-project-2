@@ -58,7 +58,9 @@ const Main = () => {
 
   return (
     <div className="Main">
+      <div className="hidden-header-div"></div>
       <CardContainer movies={movies} />
+      <div className="hidden-footer-div"></div>
     </div>
   );
 };

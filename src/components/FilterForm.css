@@ -3,21 +3,13 @@
   flex-wrap: wrap;
 }
 
-.FilterForm .inputs {
-  /* margin: 0px 3px; */
-}
-
-.FilterForm #certification {
-  margin-left: 5px;
-}
-
 .FilterForm button {
   background-color: #e34040;
   border: none;
   border-radius: 5px;
   color: white;
   font-weight: 600;
-  /* padding: 0px 20px 0px 20px; */
+  margin-left: 10px;
 }
 
 .FilterForm button:hover {
