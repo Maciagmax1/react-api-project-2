@@ -1,3 +1,9 @@
 .Main li {
   list-style: none;
 }
+
+.Main .hidden-footer-div {
+  display: hidden;
+  height: 65px;
+  width: 100%;
+}

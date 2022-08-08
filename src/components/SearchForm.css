@@ -1,9 +1,6 @@
 .SearchForm .search-wrapper {
   position: relative;
   display: flex;
-  justify-content: center;
-  min-width: 100px;
-  margin: 10px;
 }
 
 .SearchForm #search {
