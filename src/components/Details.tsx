@@ -3,7 +3,10 @@ import { useParams } from "react-router-dom";
 import WatchListContext from "../context/WatchListContext";
 
 import MovieDetails from "../models/MovieDetails";
-import { getMovieById } from "../services/MovieService";
+import SingleTrailerResponse, {
+  TrailerList,
+} from "../models/SingleTrailerResponse";
+import { getMovieById, getMovieTrailer } from "../services/MovieService";
 
 import "./Details.css";
 
@@ -12,12 +15,18 @@ const Details = () => {
 
   const [movie, setMovie] = useState<MovieDetails | null>(null);
 
+  const [video, setVideo] = useState<TrailerList>();
+
   const { watchList, addToWatchList, removeFromWatchList, isInWatchList } =
     useContext(WatchListContext);
 
   useEffect(() => {
     getMovieById(id!).then((response) => {
       setMovie(response);
+    });
+
+    getMovieTrailer(id!).then((response) => {
+      setVideo(response.results[0]);
     });
   }, [id]);
 
@@ -35,18 +44,10 @@ const Details = () => {
     <div className="Details">
       {movie && (
         <>
-          {movie.poster_path ? (
-            <img
-              src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
-              alt={movie.title}
-            />
-          ) : (
-            <img
-              src="https://bflix.biz/no-poster.png"
-              alt="no-poster"
-              className="no-poster"
-            />
-          )}
+          <img
+            src={`https://image.tmdb.org/t/p/w400${movie.poster_path}`}
+            alt={movie.title}
+          />
           <div className=""></div>
           <p>{movie.release_date.substring(0, 4)}</p>
           {/* rating <p>{movie.}</p> */}
@@ -64,7 +65,12 @@ const Details = () => {
           <div className="overview-container">
             <p>{movie.overview}</p>
           </div>
-          {/* <a href={`https://www.youtube.com/watch?v=${movie.}`} target="_blank"></a> */}
+          <a
+            href={`https://www.youtube.com/watch?v=${video?.key}`}
+            target="_blank"
+          >
+            Link
+          </a>
         </>
       )}
       <div className="hidden-div">hidden div</div>

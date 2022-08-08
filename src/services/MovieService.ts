@@ -2,6 +2,7 @@ import axios from "axios";
 import MovieDetails from "../models/MovieDetails";
 import MultipleMovieResponse from "../models/MultipleMovieResponse";
 import SingleCertificationResponse from "../models/SingleCertificationResponse";
+import SingleTrailerResponse from "../models/SingleTrailerResponse";
 
 const key: string = process.env.REACT_APP_MOVIE_KEY || "";
 
@@ -85,6 +86,19 @@ export const getMovieByFilter = (
         with_genres: genreIds,
       },
     })
+    .then((response) => {
+      return response.data;
+    });
+};
+
+export const getMovieTrailer = (id: string): Promise<SingleTrailerResponse> => {
+  return axios
+    .get(
+      `https://api.themoviedb.org/3/movie/${encodeURIComponent(id)}/videos`,
+      {
+        params: { api_key: key },
+      }
+    )
     .then((response) => {
       return response.data;
     });
