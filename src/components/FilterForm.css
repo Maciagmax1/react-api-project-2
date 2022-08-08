@@ -4,7 +4,7 @@
 }
 
 .FilterForm .inputs {
-  margin: 3px 3px;
+  /* margin: 0px 3px; */
 }
 
 .FilterForm #certification {
@@ -17,8 +17,7 @@
   border-radius: 5px;
   color: white;
   font-weight: 600;
-  padding: 0px 20px 0px 20px;
-  margin-left: 5px;
+  /* padding: 0px 20px 0px 20px; */
 }
 
 .FilterForm button:hover {
