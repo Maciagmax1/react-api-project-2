@@ -13,16 +13,34 @@ const Header = () => {
     <header className="Header">
       <div className="header-wrapper">
         <Link to="/">
-          <h1>QuickFlix</h1>
+          <h1>
+            <img
+              src={require("../assets/QwikFlix.png")}
+              className="logo-img-desktop"
+              alt="QwikFlix"
+            />
+            <img
+              src={require("../assets/QwikFlixMobile.png")}
+              className="logo-img-mobile"
+              alt="QwikFlixIcon"
+            />
+          </h1>
         </Link>
-        {formToggle ? <FilterForm /> : <SearchForm />}
-        <button
-          className="filter-btn"
-          onClick={() => setFormToggle(!formToggle)}
-        >
-          {formToggle ? <span>Search</span> : <span>Filter</span>}
-        </button>
-
+        <div className="form-container">
+          {formToggle ? <FilterForm /> : <SearchForm />}
+          <div className="inner-div">
+            <button
+              className="filter-btn"
+              onClick={() => setFormToggle(!formToggle)}
+            >
+              {formToggle ? (
+                <span>Search by Keyword</span>
+              ) : (
+                <span>Search by Filter</span>
+              )}
+            </button>
+          </div>
+        </div>
         <div className="hidden-link-div">
           <Link className="links" to="/movies/watchlist">
             <div className="number-container">

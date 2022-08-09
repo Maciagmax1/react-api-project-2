@@ -117,16 +117,6 @@ button {
     width: 50%;
   }
 
-  .Details button {
-    width: fit-content;
-    margin: 10px;
-    padding: 5px 10px;
-    border-radius: 5px;
-    background-color: #e34040;
-    color: white;
-    border: none;
-  }
-
   .Details img {
     border-radius: 10px;
   }
@@ -137,5 +127,17 @@ button {
 
   .Footer {
     display: none;
+  }
+
+  .WatchList .hidden-footloose-div {
+    display: none;
+  }
+  .Header .logo-img-mobile {
+    display: none;
+  }
+
+  .Header .logo-img-desktop {
+    display: block;
+    width: 60px;
   }
 }

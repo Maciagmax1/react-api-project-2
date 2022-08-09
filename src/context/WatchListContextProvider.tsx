@@ -1,5 +1,6 @@
 import { ReactNode, useState } from "react";
 import Movie from "../models/Movie";
+import MovieDetails from "../models/MovieDetails";
 import WatchListContext from "./WatchListContext";
 
 interface Props {
@@ -25,6 +26,7 @@ const WatchListContextProvider = ({ children }: Props) => {
   };
   const isInWatchList = (id: number): boolean =>
     watchList.some((item) => item.id === id);
+
   return (
     <WatchListContext.Provider
       value={{ watchList, addToWatchList, removeFromWatchList, isInWatchList }}

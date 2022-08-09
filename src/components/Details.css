@@ -5,7 +5,7 @@
 } */
 
 .Details img {
-  max-width: 400px;
+  max-width: 700px;
   width: 100vw;
 }
 
@@ -17,12 +17,6 @@
 .Details .date-run-container {
   display: flex;
   justify-content: space-evenly;
-}
-
-.Details .no-poster {
-  width: 300px;
-  height: 450px;
-  max-width: 100%;
 }
 
 .Details .no-poster {
@@ -91,6 +85,16 @@
   color: #e34040;
 }
 
+.Details button {
+  width: fit-content;
+  margin: 10px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #e34040;
+  color: white;
+  border: none;
+}
+
 .Details .overview-container {
   margin: 0px 15px;
   text-align: justify;
@@ -108,8 +112,8 @@
 
 .Details .close-btn {
   position: absolute;
-  top: 110px;
-  left: 60px;
+  top: 80px;
+  right: 17px;
   color: rgba(255, 255, 255, 0.6);
 }
 

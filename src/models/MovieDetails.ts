@@ -12,4 +12,5 @@ export default interface MovieDetails {
   vote_average: number;
   vote_count: number;
   genres: Genre[];
+  genre_ids?: number[] | undefined;
 }
