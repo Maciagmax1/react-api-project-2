@@ -13,6 +13,11 @@
   margin-bottom: 10px;
 }
 
+.Card:hover {
+  transform: scale(1.05);
+  transition: 1s ease;
+}
+
 .Card img {
   border-radius: 10px;
 }

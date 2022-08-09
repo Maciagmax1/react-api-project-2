@@ -17,3 +17,7 @@
   background-color: white;
   color: #e34040;
 }
+
+.FilterForm .inputs {
+  cursor: pointer;
+}

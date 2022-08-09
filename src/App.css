@@ -34,6 +34,7 @@ button {
 
   .Header .header-wrapper {
     justify-content: space-evenly;
+    height: 63px;
   }
 
   .Header .hidden-link-div {
@@ -83,13 +84,12 @@ button {
     padding: 30px 45px;
     height: 700px;
     margin-top: 20px;
-    transition: 1s ease;
   }
 
-  .Card:hover {
+  /* .Card:hover {
     transform: scale(1.05);
     transition: 1s ease;
-  }
+  } */
 
   .Details .main-div {
     display: flex;

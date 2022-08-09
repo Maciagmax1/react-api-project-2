@@ -16,12 +16,12 @@ const Details = () => {
 
   const [movie, setMovie] = useState<MovieDetails | null>(null);
 
-  const [videos, setVideos] = useState<TrailerList[]>([]);
+  const [videos, setVideos] = useState<TrailerList>();
 
-  const index: number = videos.findIndex((item) => item.type === "Trailer");
+  // const index: number = videos.findIndex((item) => item.type === "Trailer");
 
-  const { watchList, addToWatchList, removeFromWatchList, isInWatchList } =
-    useContext(WatchListContext);
+  // const { watchList, addToWatchList, removeFromWatchList, isInWatchList } =
+  //   useContext(WatchListContext);
 
   useEffect(() => {
     getMovieById(id!).then((response) => {
@@ -29,7 +29,7 @@ const Details = () => {
     });
 
     getMovieTrailer(id!).then((response) => {
-      setVideos(response.results);
+      setVideos(response.results[0]);
     });
   }, [id]);
 
@@ -96,10 +96,10 @@ const Details = () => {
               <p>{movie.overview}</p>
             </div>
             <a
-              href={`https://www.youtube.com/watch?v=${videos[index].key}`}
+              href={`https://www.youtube.com/watch?v=${videos?.key}`}
               target="_blank"
             >
-              <button>Trailer</button>
+              <button>Clips</button>
             </a>
           </div>
         </div>

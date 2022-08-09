@@ -8,7 +8,8 @@ const WatchList = () => {
 
   return (
     <div className="WatchList">
-      <div className="margin-div"> </div>
+      <div className="margin-div"></div>
+      <h2 className="watch-list-title">Watch List</h2>
       <div className="watchlist-container">
         {watchList.map((movie, index) => (
           <Card movie={movie} key={index} />
