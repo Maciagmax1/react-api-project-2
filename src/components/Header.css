@@ -38,11 +38,11 @@
   display: none;
 }
 .Header .logo-img-mobile {
-  width: 75px;
+  width: 65px;
   display: block;
   position: absolute;
-  top: 15px;
-  left: 15px;
+  top: 17px;
+  left: 10px;
 }
 
 .Header a {
