@@ -1,6 +1,7 @@
 .FilterForm .form-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 .FilterForm button {

@@ -32,10 +32,17 @@ button {
     height: 80px;
   }
 
+  .Header .header-wrapper {
+    justify-content: space-evenly;
+  }
+
   .Header .hidden-link-div {
     display: flex !important;
     justify-content: space-between;
     width: 15%;
+    position: absolute;
+    right: 20px;
+    top: 20px;
   }
 
   .Header .filter-btn {
@@ -51,14 +58,14 @@ button {
   }
 
   .SearchForm #search {
-    padding: 10px 0px;
+    padding: 3px 0px;
     font-size: 25px;
   }
 
   .SearchForm .fa-magnifying-glass {
     font-size: 20px;
     color: #666;
-    transform: translate(0px, 7px);
+    transform: translate(0px, 2px);
   }
 
   .FilterForm .inputs {
@@ -132,12 +139,15 @@ button {
   .WatchList .hidden-footloose-div {
     display: none;
   }
-  .Header .logo-img-mobile {
+  .Header .header-wrapper .logo-img-mobile {
     display: none;
   }
 
-  .Header .logo-img-desktop {
+  .Header .header-wrapper .logo-img-desktop {
     display: block;
-    width: 60px;
+    width: 75px;
+    position: absolute;
+    top: 4px;
+    left: 17px;
   }
 }

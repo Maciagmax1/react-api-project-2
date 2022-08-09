@@ -6,15 +6,16 @@
 .SearchForm #search {
   border: none;
   border-radius: 5px;
-  height: 15px;
+  height: 25px;
   width: 100%;
   padding-left: 30px;
 }
 
 .SearchForm .fa-magnifying-glass {
   position: absolute;
-  top: 5px;
-  left: 8px;
+  top: 4px;
+  left: 6px;
   width: 14px;
   color: #666;
+  font-size: 20px;
 }

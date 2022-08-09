@@ -4,7 +4,7 @@ import "./FilterForm.css";
 
 const FilterForm = () => {
   const [rating, setRating] = useState(0);
-  const [certification, setCertification] = useState("none");
+  const [certification, setCertification] = useState("");
   const [certificationCountry, setCertificationCountry] = useState("US");
 
   const [genres, setGenres] = useState<number>(0);
@@ -33,8 +33,8 @@ const FilterForm = () => {
           value={certification}
           onChange={(e) => setCertification(e.target.value)}
         >
-          <option disabled selected>
-            Rating
+          <option selected disabled value={""}>
+            Rated
           </option>
           <option value={""}></option>
           <option value={"G"}>G</option>
@@ -49,7 +49,7 @@ const FilterForm = () => {
           value={genres}
           onChange={(e) => setGenres(parseInt(e.target.value))}
         >
-          <option disabled selected>
+          <option selected disabled value={0}>
             Genre
           </option>
           <option value={0}></option>
@@ -80,7 +80,7 @@ const FilterForm = () => {
           value={rating}
           onChange={(e) => setRating(parseInt(e.target.value))}
         >
-          <option disabled selected>
+          <option selected disabled value={0}>
             User Rating
           </option>
           <option value={0}></option>

@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { isTemplateExpression } from "typescript";
 import WatchListContext from "../context/WatchListContext";
 
 import MovieDetails from "../models/MovieDetails";
@@ -15,7 +16,9 @@ const Details = () => {
 
   const [movie, setMovie] = useState<MovieDetails | null>(null);
 
-  const [video, setVideo] = useState<TrailerList>();
+  const [videos, setVideos] = useState<TrailerList[]>([]);
+
+  const index: number = videos.findIndex((item) => item.type === "Trailer");
 
   const { watchList, addToWatchList, removeFromWatchList, isInWatchList } =
     useContext(WatchListContext);
@@ -26,7 +29,7 @@ const Details = () => {
     });
 
     getMovieTrailer(id!).then((response) => {
-      setVideo(response.results[0]);
+      setVideos(response.results);
     });
   }, [id]);
 
@@ -93,7 +96,7 @@ const Details = () => {
               <p>{movie.overview}</p>
             </div>
             <a
-              href={`https://www.youtube.com/watch?v=${video?.key}`}
+              href={`https://www.youtube.com/watch?v=${videos[index].key}`}
               target="_blank"
             >
               <button>Trailer</button>
