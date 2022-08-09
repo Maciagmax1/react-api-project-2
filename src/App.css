@@ -52,6 +52,7 @@ button {
 
   .Details img {
     height: 80vh;
+    padding-right: 30px;
   }
 
   .SearchForm .search-wrapper {
