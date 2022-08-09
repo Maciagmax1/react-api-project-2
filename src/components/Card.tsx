@@ -93,7 +93,13 @@ const Card = ({ movie }: Props) => {
           )}
         </div>
 
-        <ul>{getAllGenres(movie.genre_ids).slice(0, 3)}</ul>
+        {getAllGenres(movie.genre_ids).length > 0 ? (
+          <ul>{getAllGenres(movie.genre_ids).slice(0, 3)}</ul>
+        ) : (
+          <ul>
+            <li>No Genre Listed</li>
+          </ul>
+        )}
         <div className="title">
           <h2>{movie.title}</h2>
         </div>
